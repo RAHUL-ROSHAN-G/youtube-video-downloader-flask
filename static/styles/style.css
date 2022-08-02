@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+*{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+
+body{
+  text-align: center; 
+}
+
+.see{
+  background-color: white;
+  border:2px solid white;
+  border-radius: 75px;
+  padding: 0 10px 0 10px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  /*background:rgba(0,0,0,.3);*/
+  background:#333;
+}
+#button-decoration{
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+}
+#label-deco{
+  font-size: 20px; 
+  font-weight: bold; 
+  color: black; 
+  border: 2px solid black; 
+  border-radius: 10px; 
+  padding: 10px;
+}
+#select-deco{
+  display:initial; 
+  font-size: 20px; 
+  border: 2px solid black; 
+  border-radius: 10px;
+}
+h2{
+  border: 2px solid black;
+  border-radius: 10px;
+}
+#img-deco{
+  padding: 50px 0 0 0 ;
+}
+#style-deco{
+  background-color: lightpink;
+  padding: 5px 10px 5px 10px; 
+  border-radius: 12px;
+}
+#style-de{
+  background-color: lightblue;
+  padding: 5px 10px 5px 10px; 
+  border-radius: 12px;
+}
+#deco-h2{
+  font-weight: bold; 
+  border: 2px solid white; 
+  border-radius: 25px;
+  background-color: white;
+}
+#style-de1{
+  font-family: 'Shadows Into Light', cursive; 
+  font-weight: bolder; 
+  color: red;
+}
