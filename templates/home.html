@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block content %}
+	
+	<!--<form method="POST">
+		<input type="text" placeholder="Enter the YouTube URL" name='url'> class="validate"
+
+			
+		<div class="input-field col s6">	
+          <i class="material-icons">insert_link</i>
+          <input id="Enter the YouTube URL" type="text" name='url'>
+          <label for="Enter the YouTube URL">Enter the YouTube URL</label>
+        </div>
+
+		<button type="submit">Convert</button>
+	</form>-->
+
+	<nav>
+      <div class="nav-wrapper #ec407a pink lighten-1">
+        <a href="/" class="brand-logo center">Youtube Video DownLoader</a>
+      </div>
+    </nav>
+
+<div>
+	<h4><span class="see">Down-Load any videos from the YouTube Here</span></h4>
+</div>
+    
+	<video autoplay muted loop id="myVideo" style="background:#333;">
+	  <source src="/static/videos/merged.mp4" type="video/mp4">
+	</video>
+
+
+
+<div class="row">
+    <form class="col s12" method="POST">
+      <div class="row" style="padding-top: 120px;">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">insert_link</i>
+          <input id="Enter the YouTube URL" type="text" class="validate" name="url" style="color:blanchedalmond; background-color: black; border-radius:100px; text-align: center;">
+          <label for="Enter the YouTube URL" style="color: blanchedalmond;font-size: 20px;text-align: center;border-radius: 100px;" class="#00bfa5 teal accent-4">Enter the YouTube URL</label>
+        </div>
+      </div>
+      <button type="submit" class="waves-effect waves-light btn-large #ec407a pink lighten-1" style="font-family: 'Edu VIC WA NT Beginner', cursive;"><i class="material-icons left">file_download</i>Download</button>
+    </form>
+  </div>
+        
+   <div style="padding-top: 200px;">
+   		<h2 id="deco-h2">About Me</h2>
+   		<h3><span id="style_de" style="background-color: lightpink;padding: 5px 10px 5px 10px; border-radius: 12px;">I am <span id="style-de1">Rahul Roshan G</span></span></h3>
+
+   		<p><span id="style-deco">Install Python and Pytube</span></p> 
+		<p><span id="style-deco">Run this code by " python {name of the file} {Link} " in your command prompt</span></p>
+
+	<div >
+		<h5><p> <span id="style-deco" style="font-weight: bold;">Code goes here:</span></p>
+
+			<div style="background-color:lightpink; border-style: ridge; border-radius: 200px 200px 0 0;"><p>from pytube import YouTube</p>
+			<p>from sys import argv</p>
+
+			<p>link =argv[1]</p>
+			<p>yt = YouTube(link)</p>
+
+			<p>print("Title: ", yt.title)</p>
+
+			<p>print("View: ", yt.views)</p>
+
+			<p>yd = yt.streams.get_highest_resolution()</p>
+
+			<p>#path to save the downloaded files</p>
+			<p>yd.download('Your path to save goes here')</p></div>
+
+		</h5>
+	</div>
+   </div>
+
+{% endblock content %}

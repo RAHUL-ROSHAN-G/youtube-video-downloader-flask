@@ -1,0 +1,6 @@
+{% extends 'layout.html' %}
+{% block content %}
+	<!--<img src="/static/images/404error.jpg" alt="error" />-->
+	<img src="{{ url_for('static', filename='/images/404error.jpg') }}">
+	<h3>Something went wrong, please try again.</h3>
+{% endblock content %}

@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+	<nav>
+      <div class="nav-wrapper #ec407a pink lighten-1">
+        <a href="/" class="brand-logo center">Youtube Video DownLoader</a>
+      </div>
+  </nav>
+
+	<img class="responsive-img" id="img-deco" src="{{url.thumbnail_url}}" alt="Thumbnail"/>
+
+	<iframe width="630" height="375" src= "{{ video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:2px dashed indianred; border-radius: 25px;"></iframe>
+
+
+	<h2 class="#ec407a pink lighten-1">TITLE:- </h2>
+	<h3>{{url.title}}</h3>
+
+	<h2 class="#ec407a pink lighten-1">AUTHOR [Channel Name]:- </h2>
+	<h3>{{url.author}}</h3>
+
+	<h2 class="#ec407a pink lighten-1">DURATION:- </h2>
+	<h3>{{ video_duration }} [hrs: min : sec]</h3>
+	
+	<h2 class="#ec407a pink lighten-1">Highest res file size:- </h2>
+	<h3>{{ best_video_file_size }}</h3>
+
+	<h2 class="#ec407a pink lighten-1">VIEWS:- </h2>
+	<h3>{{url.views}}</h3>
+
+	<h2 class="#ec407a pink lighten-1">AGE RESTRICTED:- </h2>
+	<h3>{{ url.age_restricted }}</h3>
+
+	<h2 class="#ec407a pink lighten-1">DESCRIPTION:- </h2>
+	<h3>{{url.description}}</h3>
+	
+	<div class="col s12 m2">
+
+	<div class="input-field col s12 z-depth-5" style="border:2px solid black; border-radius:10px; background-color: lightcyan; padding: 50px;">
+		<form action="{{url_for('download_video')}}" method="POST">
+			
+			<label id="label-deco" style="background-color: palevioletred;font-size: 25px;">Select a Resolution</label>
+
+			<div class="input-field col s12"> 
+				<select name="itag" id="select-deco">
+					<optgroup label="Video" style="font-family: 'Edu VIC WA NT Beginner', cursive;">
+					{% for i in url.streams.filter(progressive=True) %}
+						<option value="{{i.itag}}">{{i.resolution}} video ({{i.fps}}  fps)</option>
+					{% endfor %}
+					</optgroup>
+					
+					<optgroup label="Audio" style="font-family: 'Edu VIC WA NT Beginner', cursive;">
+					{% for i in url.streams.filter(only_audio=True) %}
+						<option value="{{i.itag}}">{{i.type}} ({{i.abr}})</option>
+					{% endfor %}
+					</optgroup>
+
+		   	</select>
+	    	</div>
+
+		   
+
+	    <button type="submit" id="button-decoration" class="waves-effect waves-light btn-large #ec407a pink lighten-1" style="border-radius: 10px;">
+	    	<i class="material-icons left">
+					file_download
+	    	</i>
+				Download
+	    </button>
+	    	
+	    <a href="{{ url_for('home') }}" style="color:red ; font-weight: bold; font-size: 20px;">
+	    	Download Another Video? 
+	    	Click Here!
+	    </a>
+		</form>
+  </div>
+</div>
+{% endblock content %}
+
+
+
+
+<!--Without css or style.
+<form action="{{url_for('download_video')}}" method="POST">
+		<select name="itag">
+			{% for i in url.streams.filter(progressive=True) %}
+				<option value="{{i.itag}}">{{i.resolution}}</option>				
+			{% endfor %}
+		</select>
+		<button type="submit">Download</button>
+	</form>-->
