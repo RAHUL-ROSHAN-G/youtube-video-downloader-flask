@@ -53,28 +53,17 @@ def home():
 def download_video():
 	if request.method == "POST":
 		buffer = BytesIO()
-		
 		url = YouTube(session['link'])
-
-		
 		itag = request.form.get('itag')
-		res = request.form.get('resolution')
-		if url.streams.filter(only_audio=True):
-			audio = url.streams.get_by_itag(itag)
-			audio.stream_to_buffer(buffer)
-			buffer.seek(0)
-			audio_name = url.title
-			return send_file(buffer,download_name=f'{url.title}.mp3' ,as_attachment=True, mimetype='audio/mp4')
+		video = url.streams.get_by_itag(itag)
+		#video = url.streams.get_highest_resolution()
+		video.stream_to_buffer(buffer)
+		buffer.seek(0)
+		video_name = url.title
 
-		else:
-			video = url.streams.get_by_itag(itag)
-			#video = url.streams.get_highest_resolution()
-			video.stream_to_buffer(buffer)
-			buffer.seek(0)
-			video_name = url.title
-
-			return send_file(buffer,download_name=f'{url.title}.mp4' ,as_attachment=True, mimetype='video/mp4')
+		return send_file(buffer,download_name=f'{url.title}.mp4' ,as_attachment=True, mimetype='video/mp4')
 	return redirect(url_for('home'))
+
 
 
 
